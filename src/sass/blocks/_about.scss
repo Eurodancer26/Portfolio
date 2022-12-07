@@ -1,0 +1,77 @@
+.about {
+    padding-top: 120px;
+    &__wrraper {
+        display: grid;
+        grid-template-columns: 400px 570px;
+        grid-template-rows: minmax(240px, auto), minmax(240px, auto);
+        grid-auto-rows: minmax(240px, auto);
+        column-gap: 70px;
+        grid-template-areas: 
+        'photo descr'
+        'photo skills';
+    }
+    &__photo {
+        grid-area: photo;
+        img {
+            width: 100%;
+        }
+    }
+    &__descr {
+        grid-area: descr;
+        .divider {
+            margin: 0;
+        }
+    }
+    &__title{
+        position: relative;
+        padding: 6px 0 6px 12px;
+        @include before_circle;       
+    }
+    &__text {
+        margin-top: 20px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 21px;
+    }
+    &__skills {
+        grid-area: skills;
+        display: grid;
+        grid-template-columns: repeat(2, 260px);
+        grid-template-rows: repeat(2, minmax(94px, auto));
+        column-gap: 50px;
+        &-title {
+            font-weight: 700;
+        }
+        &-item {
+            display: flex;
+            justify-content: flex-end;
+        }
+        &-img {
+            padding: 15px 20px 0 0;
+            position: relative; //до миксина
+            z-index: 2;
+            &::before {
+                content: '';
+                z-index: -1;
+                position: absolute;
+                top: 0;
+                left: -15px;
+                width: 36px;
+                height: 36px;
+                border-radius: 100%;
+                background: $main_color;               
+            }
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+        &-text {
+            margin-top: 6px;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 18px;
+            width: 200px;
+        }
+    }
+}
