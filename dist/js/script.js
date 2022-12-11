@@ -1,6 +1,7 @@
 'use strict';
 
 window.addEventListener('DOMContentLoaded', () => {
+    //Menu
     const hamburger = document.querySelector('.hamburger'),
           menu = document.querySelector('.menu'),
           closeMenu = menu.querySelector('.menu__close'),
@@ -37,4 +38,22 @@ window.addEventListener('DOMContentLoaded', () => {
         overlayMenu.classList.remove('active');
         document.body.style.overflow = '';
     }
+    //retings
+
+    const counters = document.querySelectorAll('.skills__ratings-counter'),
+        lines = document.querySelectorAll('.skills__ratings-line span'),
+        width = document.querySelectorAll('.skills__ratings-line');
+
+    counters.forEach( (counter, i) => {
+        console.log(counter.innerHTML);
+        if (counter.innerHTML <= `${0}%`) {
+            lines[i].style.width = 0;
+        } else {
+        lines[i].style.width = counter.innerHTML;
+        lines[i].style.maxWidth = `${width[i].clientWidth}px`;            
+        }
+    });
 });
+
+
+
